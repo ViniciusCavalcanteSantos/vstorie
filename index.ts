@@ -1,0 +1,1 @@
+export {VStorie} from "./src/components/VStorie"
