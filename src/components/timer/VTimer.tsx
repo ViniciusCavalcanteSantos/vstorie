@@ -1,7 +1,6 @@
 
 export function VTimer({ progress }: { progress: number }) {
   
-  console.log(progress)
   return(
     <div className="VTimer" style={{
       ...styles.vTimer,

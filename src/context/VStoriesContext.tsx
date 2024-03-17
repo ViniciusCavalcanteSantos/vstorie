@@ -4,8 +4,8 @@ import { useState, createContext } from "react";
 export interface VStoriesContextType {
   stories: Storie[],
   currentStorie: number,
-  setStories: (value: Storie[]) => void,
-  setCurrentStorie: (value: number) => void
+  setStories: Function,
+  setCurrentStorie: Function
 }
 
 export const VStoriesContext = createContext<VStoriesContextType>({

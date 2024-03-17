@@ -2,7 +2,7 @@
   "name": "react-vstorie",
   "description": "An easy to use React component for stories instagram like",
   "author": "Vinicius Cavalcanti Santos",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "private": false,
   "type": "module",
   "main": "dist/index.umd.js",
