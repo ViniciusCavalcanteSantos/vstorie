@@ -1,26 +1,11 @@
-import { Storie } from "../types/Storie"
-import { useState, createContext } from "react";
+import { createContext } from "react";
+import { Config } from "../types/Config";
 
-export interface VContextType {
-  stories: Storie[],
-  currentStorie: number,
-  setStories: (value: Storie[]) => void,
-  setCurrentStorie: (value: number) => void
-}
+export const VContext = createContext<Config>({})
 
-export const VContext = createContext<VContextType>({
-  stories: [],
-  currentStorie: 0,
-  setStories: (value: Storie[]) => {return value},
-  setCurrentStorie: (value: number) => {return value}
-})
-
-export function VContextProvider({ children }: { children: React.ReactNode}) {
-  const [stories, setStories] = useState<Storie[]>([]);
-  const [currentStorie, setCurrentStorie] = useState<number>(0);
-
+export function VContextProvider({ config, children }: { config: Config, children: React.ReactNode }) {
   return(
-    <VContext.Provider value={{stories, setStories,currentStorie, setCurrentStorie}}>
+    <VContext.Provider value={config}>
       {children}
     </VContext.Provider>
   )

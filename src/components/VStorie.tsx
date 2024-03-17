@@ -1,7 +1,9 @@
+import { VTimer } from "./VTimer";
+
 export function VStorie() {
   return(
     <div>
-      My VStorie
+      <VTimer />
     </div>
   )
 }
