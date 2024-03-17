@@ -1,9 +1,9 @@
 import { VContextProvider } from "../context/VContext"
 import { VContainer } from "./VContainer"
-import { Storie } from "../types/Storie"
+import { StorieUnformatted } from "../types/StorieUnformatted"
 
 interface VStoriesProps {
-  stories: (string | Storie)[]
+  stories: StorieUnformatted
 }
 
 export function VStories({ stories }: VStoriesProps) {

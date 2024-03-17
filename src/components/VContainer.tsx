@@ -3,9 +3,10 @@ import { useVContext } from "../hooks/useVContext"
 import { VStorie } from "./VStorie";
 import { getStorieInfo } from "../helpers/getStorieInfo";
 import { Storie } from "../types/Storie";
+import { StorieUnformatted } from "../types/StorieUnformatted";
 
 interface VContainerProps {
-  stories: (string | Storie)[]
+  stories: StorieUnformatted
 }
 
 export function VContainer({ stories }: VContainerProps) {
