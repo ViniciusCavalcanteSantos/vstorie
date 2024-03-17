@@ -1,7 +1,7 @@
 import { Storie } from "../types/Storie"
 import { useState, createContext } from "react";
 
-interface VContextType {
+export interface VContextType {
   stories: Storie[],
   currentStorie: number,
   setStories: (value: Storie[]) => void,
@@ -11,8 +11,8 @@ interface VContextType {
 export const VContext = createContext<VContextType>({
   stories: [],
   currentStorie: 0,
-  setStories: (value: Storie[]) => {},
-  setCurrentStorie: (value: number) => {}
+  setStories: (value: Storie[]) => {return value},
+  setCurrentStorie: (value: number) => {return value}
 })
 
 export function VContextProvider({ children }: { children: React.ReactNode}) {
