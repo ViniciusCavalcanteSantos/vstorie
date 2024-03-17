@@ -1,7 +1,7 @@
 export type Config = {
   width?: string,
   height?: string,
-  loader?: React.ComponentType<any>,
+  loader?: JSX.Element,
   duration?: number,
   loop?: boolean,
   isPaused?: boolean,

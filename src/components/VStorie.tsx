@@ -1,9 +1,12 @@
-import { VTimer } from "./VTimer";
+import { useVContext } from "../hooks/useVContext";
+import { VTimerContainer } from "./timer/VTimerContainer";
 
 export function VStorie() {
+ 
+
   return(
-    <div>
-      <VTimer />
-    </div>
+    <>
+      <VTimerContainer />
+    </>
   )
 }
