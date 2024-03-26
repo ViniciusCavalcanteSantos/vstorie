@@ -16,7 +16,7 @@ export interface VContextType {
 }
 
 export const VContext = createContext<VContextType>({
-  width: "300px",
+  width: "360px",
   height: "600px",
   loader: <VLoader color={"#fff"} />,
   duration: 3000,
@@ -30,7 +30,7 @@ export const VContext = createContext<VContextType>({
 
 export function VContextProvider({ config, children }: { config: Config, children: React.ReactNode }) {
   const defaultValue: VContextType = {
-    width: config?.width ?? "300px",
+    width: config?.width ?? "360px",
     height: config?.height ?? "600px",
     loader: config?.loader ?? <VLoader color={"#fff"} />,
     duration: config?.duration ?? 3000,

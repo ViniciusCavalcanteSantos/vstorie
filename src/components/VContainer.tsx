@@ -17,7 +17,9 @@ export function VContainer() {
 
 const styles = {
   vStories: {
+    position: "relative",
     width: "100%",
-    height: "100%"
-  }
-}
+    height: "100%",
+    background: "#111"
+  } as React.CSSProperties
+} 

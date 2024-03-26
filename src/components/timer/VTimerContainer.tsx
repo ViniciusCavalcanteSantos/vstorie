@@ -63,11 +63,17 @@ export function VTimerContainer() {
 
 const styles = {
   progressContainer: {
+    position: "absolute",
+    top: "0",
+    left: "50%",
+    transform: "translateX(-50%)",
     display: "grid",
     gridAutoColumns: "1fr",
     gridAutoFlow: "column",
     gap: "4px",
-    width: "100%",
-    height: "4px"
-  }
+    width: "98%",
+    height: "4px",
+    paddingTop: "7px",
+    boxSizing: "content-box"
+  } as React.CSSProperties
 }
