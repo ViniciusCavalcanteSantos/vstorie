@@ -90,7 +90,7 @@ const styles = {
     gridAutoFlow: "column",
     gap: "4px",
     width: "98%",
-    height: "4px",
+    height: "2px",
     paddingTop: "7px",
     boxSizing: "content-box"
   } as React.CSSProperties
