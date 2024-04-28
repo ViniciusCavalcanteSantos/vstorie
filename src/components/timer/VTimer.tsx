@@ -15,7 +15,6 @@ const styles = {
     width: "100%",
     background: "#fff",
     transformOrigin: "left",
-    transition: "transform 50ms"
   }
 }
 

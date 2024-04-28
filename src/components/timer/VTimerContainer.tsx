@@ -2,21 +2,24 @@ import { useEffect, useRef, useState } from "react";
 import { useVContext } from "../../hooks/useVContext";
 import { useVStoriesContext } from "../../hooks/useVStoriesContext";
 import { VTimer } from "./VTimer";
+import { useVProgressContext } from "../../hooks/useVProgressContext";
 
 export function VTimerContainer() {
   const requestRef = useRef(0);
   const lastTimeRef = useRef(0);
-  const [ timeElapsed, setTimeElapsed ] = useState(0);
   const { duration, loop, onAllStoriesNext } = useVContext();
   const { stories, currentStorie, setCurrentStorie } = useVStoriesContext();
+  const { timeElapsed, setTimeElapsed, isPaused } = useVProgressContext();
   const storiesLength = stories.length;
 
   const animate = (timestamp: number) => {
+    // Retoma o contador com o tempo de pausa se houver
     if(!lastTimeRef.current) {
-      lastTimeRef.current = timestamp;
+      lastTimeRef.current = timestamp - timeElapsed;
     }
 
     let progress = timestamp - lastTimeRef.current;
+    // Se o progresso passar a duração máxima passa para o próximo
     if(progress >= duration) {
       if((storiesLength - 1) > currentStorie) {
         lastTimeRef.current = timestamp;
@@ -30,6 +33,7 @@ export function VTimerContainer() {
       }
     }
 
+    // Se o progresso não passar a duração máxima chama mais uma animação
     if(progress < duration) {
       requestRef.current = requestAnimationFrame(animate);
     }
@@ -39,10 +43,21 @@ export function VTimerContainer() {
 
 
   useEffect(() => {
+    // Quando pausado para o contador
+    if(isPaused) {
+      lastTimeRef.current = 0; 
+      requestRef.current && cancelAnimationFrame(requestRef.current);
+      return;
+    }
+
     requestRef.current = requestAnimationFrame(animate)
 
     return () => cancelAnimationFrame(requestRef.current)
-  }, [currentStorie, duration])
+  }, [lastTimeRef.current, currentStorie, duration, isPaused, timeElapsed])
+
+  useEffect(() => {
+    lastTimeRef.current = 0;
+  }, [currentStorie])
 
   const timers = stories.map((_, index) => {
     let progress = timeElapsed / duration;

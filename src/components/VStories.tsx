@@ -5,6 +5,7 @@ import { VContextProvider } from "../context/VContext"
 import { Config } from "../types/Config"
 import { getStorieInfo } from "../helpers/getStorieInfo";
 import { Storie } from "../types/Storie";
+import { VProgressContextProvider } from "../context/VProgressContext"
 
 interface VStoriesProps extends Config {
   stories: StorieUnformatted
@@ -16,7 +17,9 @@ export function VStories(props: VStoriesProps) {
   return(
     <VContextProvider config={config}>
       <VStoriesContextProvider stories={formatStories(stories)}>
-        <VContainer />
+        <VProgressContextProvider>
+          <VContainer />
+        </VProgressContextProvider>
       </VStoriesContextProvider>
     </VContextProvider>
   )
