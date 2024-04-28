@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useVContext } from "../../hooks/useVContext";
 import { useVStoriesContext } from "../../hooks/useVStoriesContext";
 import { VTimer } from "./VTimer";
@@ -7,9 +7,9 @@ import { useVProgressContext } from "../../hooks/useVProgressContext";
 export function VTimerContainer() {
   const requestRef = useRef(0);
   const lastTimeRef = useRef(0);
-  const { duration, loop, onAllStoriesNext } = useVContext();
+  const { duration: defaultDuration, loop, onAllStoriesNext } = useVContext();
   const { stories, currentStorie, setCurrentStorie } = useVStoriesContext();
-  const { timeElapsed, setTimeElapsed, isPaused } = useVProgressContext();
+  const { timeElapsed, setTimeElapsed, isPaused, isLoading, setIsLoading, duration, setDuration} = useVProgressContext();
   const storiesLength = stories.length;
 
   const animate = (timestamp: number) => {
@@ -44,7 +44,7 @@ export function VTimerContainer() {
 
   useEffect(() => {
     // Quando pausado para o contador
-    if(isPaused) {
+    if(isPaused || isLoading) {
       lastTimeRef.current = 0; 
       requestRef.current && cancelAnimationFrame(requestRef.current);
       return;
@@ -53,10 +53,12 @@ export function VTimerContainer() {
     requestRef.current = requestAnimationFrame(animate)
 
     return () => cancelAnimationFrame(requestRef.current)
-  }, [lastTimeRef.current, currentStorie, duration, isPaused, timeElapsed])
+  }, [lastTimeRef.current, currentStorie, duration, isPaused, isLoading, timeElapsed])
 
   useEffect(() => {
     lastTimeRef.current = 0;
+    setDuration(defaultDuration)
+    setIsLoading(true)
   }, [currentStorie])
 
   const timers = stories.map((_, index) => {
