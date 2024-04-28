@@ -28,7 +28,7 @@ export function VTimerContainer() {
       }
 
       if((storiesLength - 1) === currentStorie) {
-        if(loop) setCurrentStorie(0)
+        if(loop) setCurrentStorie(0);
         if(!loop && onAllStoriesNext) onAllStoriesNext();
       }
     }
@@ -57,6 +57,7 @@ export function VTimerContainer() {
 
   useEffect(() => {
     lastTimeRef.current = 0;
+    setTimeElapsed(0)
     setDuration(defaultDuration)
     setIsLoading(true)
   }, [currentStorie])

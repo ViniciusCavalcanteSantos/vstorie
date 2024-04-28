@@ -10,7 +10,7 @@ enum Actions {
 
 export function VControllers() {
   const mouseEventHandler = useRef(0);
-  const { onAllStoriesBack, onAllStoriesNext } = useVContext();
+  const { onAllStoriesBack, onAllStoriesNext, loop } = useVContext();
   const { stories, currentStorie, setCurrentStorie } = useVStoriesContext();
   const { isPaused, setIspaused, setTimeElapsed } = useVProgressContext();
 
@@ -44,7 +44,11 @@ export function VControllers() {
       }
 
       if(currentStorie === (stories.length - 1)) {
-        onAllStoriesNext()
+        if(loop) {
+          setTimeElapsed(0);
+          setCurrentStorie(0)
+        }
+        if(!loop) onAllStoriesNext()
       }
     }
   }
