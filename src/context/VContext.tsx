@@ -1,6 +1,6 @@
 import { createContext } from "react";
 import { Config } from "../types/Config";
-import { VLoader } from "../components/icons/VLoader";
+import { LoadingIcon } from "../components/icons/LoadingIcon";
 
 export interface VContextType {
   width: string,
@@ -18,7 +18,7 @@ export interface VContextType {
 export const VContext = createContext<VContextType>({
   width: "360px",
   height: "600px",
-  loader: <VLoader color={"#fff"} />,
+  loader: <LoadingIcon color={"#fff"} />,
   duration: 3000,
   loop: false,
   isPaused: false,
@@ -32,7 +32,7 @@ export function VContextProvider({ config, children }: { config: Config, childre
   const defaultValue: VContextType = {
     width: config?.width ?? "360px",
     height: config?.height ?? "600px",
-    loader: config?.loader ?? <VLoader color={"#fff"} />,
+    loader: config?.loader ?? <LoadingIcon color={"#fff"} />,
     duration: config?.duration ?? 3000,
     loop: config?.loop ?? false,
     isPaused: config?.isPaused ?? false,

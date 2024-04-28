@@ -1,5 +1,5 @@
 /* By Sam Herbert (@sherb), for everyone. More @ http://goo.gl/7AJzbL */
-export function VLoader({ color = "#ffffff"}: { color: string }) {
+export function LoadingIcon({ color = "#ffffff"}: { color?: string }) {
   return(
     <svg
     width={44}

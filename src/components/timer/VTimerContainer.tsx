@@ -92,6 +92,7 @@ const styles = {
     width: "98%",
     height: "2px",
     paddingTop: "7px",
-    boxSizing: "content-box"
+    boxSizing: "content-box",
+    zIndex: "2"
   } as React.CSSProperties
 }
