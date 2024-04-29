@@ -10,7 +10,7 @@ enum Actions {
 
 export function VControllers() {
   const mouseEventHandler = useRef(0);
-  const { onAllStoriesBack, onAllStoriesNext, loop } = useVContext();
+  const { isPaused: isPausedDefault, onAllStoriesBack, onAllStoriesNext, loop } = useVContext();
   const { stories, currentStorie, setCurrentStorie } = useVStoriesContext();
   const { isPaused, setIspaused, setTimeElapsed } = useVProgressContext();
 
@@ -22,7 +22,7 @@ export function VControllers() {
 
   const handleMouseUp = (action: Actions) => {
     mouseEventHandler.current && clearTimeout(mouseEventHandler.current);
-    if(isPaused) {
+    if(isPaused && !isPausedDefault) {
       return setIspaused(false);
     }
 

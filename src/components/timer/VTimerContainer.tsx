@@ -56,6 +56,7 @@ export function VTimerContainer() {
   }, [lastTimeRef.current, currentStorie, duration, isPaused, isLoading, timeElapsed])
 
   useEffect(() => {
+    // Reseta ao mudar o contador
     lastTimeRef.current = 0;
     setTimeElapsed(0)
     setDuration(defaultDuration)
