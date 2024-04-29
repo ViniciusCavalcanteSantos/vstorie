@@ -20,6 +20,8 @@ const styles = {
     position: "relative",
     width: "100%",
     height: "100%",
-    background: "#111"
+    background: "#111",
+    borderRadius: "8px",
+    overflow: "hidden"
   } as React.CSSProperties
 } 

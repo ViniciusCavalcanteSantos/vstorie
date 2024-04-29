@@ -4,13 +4,13 @@ import { Storie } from "../types/Storie";
 import { useVProgressContext } from "../hooks/useVProgressContext";
 
 export default function VContent() {
-  const { stories, currentStorie } = useVStoriesContext();
-  const { isPaused, setIsPaused, isLoading, setIsLoading, duration, setDuration } = useVProgressContext();
-  const current = stories[currentStorie];
+  const vStoriesContext = useVStoriesContext();
+  const vProgressContext = useVProgressContext();
+  const current = vStoriesContext.stories[vStoriesContext.currentStorie];
 
   const Content = current.content ?? DefaultContent;  
   return(
-    <Content storie={current} isPaused={isPaused} setIsPaused={setIsPaused} isLoading={isLoading} setIsLoading={setIsLoading} duration={duration} setDuration={setDuration}/>
+    <Content storie={current} {...vStoriesContext} {...vProgressContext}/>
   )
 }
 
