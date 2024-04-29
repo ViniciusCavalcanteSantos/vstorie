@@ -12,18 +12,18 @@ export function VControllers() {
   const mouseEventHandler = useRef(0);
   const { isPaused: isPausedDefault, onAllStoriesBack, onAllStoriesNext, loop } = useVContext();
   const { stories, currentStorie, setCurrentStorie } = useVStoriesContext();
-  const { isPaused, setIspaused, setTimeElapsed } = useVProgressContext();
+  const { isPaused, setIsPaused, setTimeElapsed } = useVProgressContext();
 
   const handleMouseDown = () => {
     mouseEventHandler.current = setTimeout(() => {
-      setIspaused(true)
+      setIsPaused(true)
     }, 300)
   }
 
   const handleMouseUp = (action: Actions) => {
     mouseEventHandler.current && clearTimeout(mouseEventHandler.current);
     if(isPaused && !isPausedDefault) {
-      return setIspaused(false);
+      return setIsPaused(false);
     }
 
     if(action === Actions.BACK) {

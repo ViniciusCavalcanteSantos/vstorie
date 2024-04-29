@@ -5,12 +5,12 @@ import { useVProgressContext } from "../hooks/useVProgressContext";
 
 export default function VContent() {
   const { stories, currentStorie } = useVStoriesContext();
-  const { isPaused, setIspaused, isLoading, setIsLoading, duration, setDuration } = useVProgressContext();
+  const { isPaused, setIsPaused, isLoading, setIsLoading, duration, setDuration } = useVProgressContext();
   const current = stories[currentStorie];
 
   const Content = current.content ?? DefaultContent;  
   return(
-    <Content storie={current} isPaused={isPaused} setIsPaused={setIspaused} isLoading={isLoading} setIsLoading={setIsLoading} duration={duration} setDuration={setDuration}/>
+    <Content storie={current} isPaused={isPaused} setIsPaused={setIsPaused} isLoading={isLoading} setIsLoading={setIsLoading} duration={duration} setDuration={setDuration}/>
   )
 }
 
