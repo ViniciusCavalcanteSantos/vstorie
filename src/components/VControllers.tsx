@@ -8,7 +8,7 @@ enum Actions {
   NEXT
 }
 
-export function VControllers() {
+export default function VControllers() {
   const mouseEventHandler = useRef(0);
   const { isPaused: isPausedDefault, onAllStoriesBack, onAllStoriesNext, loop } = useVContext();
   const { stories, currentStorie, setCurrentStorie } = useVStoriesContext();

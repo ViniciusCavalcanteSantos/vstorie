@@ -6,11 +6,11 @@ import { useVProgressContext } from "../hooks/useVProgressContext";
 export default function VContent() {
   const vStoriesContext = useVStoriesContext();
   const vProgressContext = useVProgressContext();
-  const current = vStoriesContext.stories[vStoriesContext.currentStorie];
+  const current = vStoriesContext.storie;
 
   const Content = current.content ?? DefaultContent;  
   return(
-    <Content storie={current} {...vStoriesContext} {...vProgressContext}/>
+    <Content {...vStoriesContext} {...vProgressContext}/>
   )
 }
 

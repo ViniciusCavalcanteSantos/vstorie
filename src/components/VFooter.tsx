@@ -1,19 +1,19 @@
 import { useVProgressContext } from "../hooks/useVProgressContext";
 import { useVStoriesContext } from "../hooks/useVStoriesContext";
 
-export default function VHeader() {
+export default function VFooter() {
   const vStoriesContext = useVStoriesContext();
   const vProgressContext = useVProgressContext();
   const current = vStoriesContext.storie;
 
-  const Header = current.header ?? DefaultHeader;  
+  const Footer = current.footer ?? DefaultFooter;  
 
   return(
-    <Header {...vStoriesContext} {...vProgressContext} />
+    <Footer {...vStoriesContext} {...vProgressContext} />
   )
 }
 
-export function DefaultHeader() {
+export function DefaultFooter() {
   return(
     <></>
   )

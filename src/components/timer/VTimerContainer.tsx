@@ -4,7 +4,7 @@ import { useVStoriesContext } from "../../hooks/useVStoriesContext";
 import { VTimer } from "./VTimer";
 import { useVProgressContext } from "../../hooks/useVProgressContext";
 
-export function VTimerContainer() {
+export default function VTimerContainer() {
   const requestRef = useRef(0);
   const lastTimeRef = useRef(0);
   const { duration: defaultDuration, loop, onAllStoriesNext } = useVContext();
