@@ -1,1 +1,3 @@
-export {VStorie} from "./src/components/VStorie"
+import {VStories} from "./src/components/VStories"
+
+export default VStories;

@@ -1,1 +1,2 @@
-export {VStorie} from "./VStorie"
+import {VStories} from "./VStories"
+export default VStories;
